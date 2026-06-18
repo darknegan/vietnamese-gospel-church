@@ -1,0 +1,55 @@
+<section class="page-head">
+  <div class="vgc-container">
+    <span class="vgc-eyebrow">{{ t.eyebrow | localize: lang() }}</span>
+    <h1>{{ t.title | localize: lang() }}</h1>
+    <p class="page-head__lead">{{ t.lead | localize: lang() }}</p>
+  </div>
+</section>
+
+<!-- LATEST -->
+<section class="vgc-section">
+  <div class="vgc-container">
+    <article class="latest">
+      <a class="latest__media" [href]="latest.url" target="_blank" rel="noopener" [attr.aria-label]="latest.title.en">
+        <img [ngSrc]="latest.image" fill sizes="(max-width: 900px) 100vw, 50vw" [alt]="latest.title.en" />
+        <span class="latest__play" aria-hidden="true"><i class="pi pi-play"></i></span>
+      </a>
+      <div class="latest__body">
+        <span class="latest__label">{{ t.latestLabel | localize: lang() }}</span>
+        <h2 class="latest__title">{{ latest.title | localize: lang() }}</h2>
+        <p class="latest__meta">{{ latest.speaker }} · {{ latest.passage }}</p>
+        <p class="latest__series">
+          <span class="latest__date">{{ latest.date }}</span>
+          <span class="latest__seriestag">{{ latest.series | localize: lang() }}</span>
+        </p>
+        <div class="latest__btns">
+          <a pButton rounded icon="pi pi-play" [href]="latest.url" target="_blank" rel="noopener" [label]="t.watch | localize: lang()"></a>
+          <a pButton rounded [outlined]="true" severity="contrast" icon="pi pi-volume-up" [href]="latest.url" target="_blank" rel="noopener" [label]="t.listen | localize: lang()"></a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- RECENT -->
+<section class="vgc-section sermons-list">
+  <div class="vgc-container">
+    <h2 class="section-title sermons-list__title">{{ t.recent | localize: lang() }}</h2>
+    <div class="sermons-grid">
+      @for (sermon of rest; track sermon.id) {
+        <article class="sermon">
+          <a class="sermon__media" [href]="sermon.url" target="_blank" rel="noopener" [attr.aria-label]="sermon.title.en">
+            <img [ngSrc]="sermon.image" fill sizes="(max-width: 700px) 100vw, 28vw" [alt]="sermon.title.en" />
+            <span class="sermon__play" aria-hidden="true"><i class="pi pi-play"></i></span>
+          </a>
+          <div class="sermon__body">
+            <p-tag [value]="(sermon.series | localize: lang())" styleClass="sermon__series" />
+            <h3 class="sermon__title">{{ sermon.title | localize: lang() }}</h3>
+            <p class="sermon__meta">{{ sermon.speaker }}</p>
+            <p class="sermon__sub">{{ sermon.passage }} · {{ sermon.date }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

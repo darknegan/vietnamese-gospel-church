@@ -1,0 +1,136 @@
+.ftr {
+  background: var(--vgc-ink);
+  color: var(--vgc-on-dark);
+  padding-block: clamp(3rem, 6vw, 4.5rem) 1.75rem;
+}
+
+.ftr__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.ftr__cols {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.ftr__brandline {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.ftr__cross {
+  position: relative;
+  width: 20px;
+  height: 28px;
+}
+
+.ftr__cross-v {
+  position: absolute;
+  left: 7px;
+  top: 0;
+  width: 6px;
+  height: 28px;
+  background: var(--vgc-gold);
+}
+
+.ftr__cross-h {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 20px;
+  height: 6px;
+  background: var(--vgc-gold);
+}
+
+.ftr__name {
+  font-family: var(--vgc-font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.ftr__blurb {
+  color: var(--vgc-on-dark-muted);
+  font-size: 0.95rem;
+  max-width: 34ch;
+  margin-bottom: 0.75rem;
+}
+
+.ftr__vi {
+  color: var(--vgc-gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.ftr__coltitle {
+  font-family: var(--vgc-font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--vgc-gold);
+  margin-bottom: 1rem;
+}
+
+.ftr__col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.ftr__col a {
+  color: var(--vgc-on-dark);
+  font-size: 0.95rem;
+
+  &:hover {
+    color: var(--vgc-gold);
+  }
+}
+
+.ftr__legal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid color-mix(in srgb, var(--vgc-on-dark) 16%, transparent);
+  color: var(--vgc-on-dark-muted);
+  font-size: 0.85rem;
+}
+
+.ftr__social {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.1rem;
+
+  a:hover {
+    color: var(--vgc-gold);
+  }
+}
+
+@media (max-width: 860px) {
+  .ftr__cols {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ftr__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .ftr__cols {
+    grid-template-columns: 1fr;
+  }
+
+  .ftr__legal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

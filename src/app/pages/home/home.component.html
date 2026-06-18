@@ -1,0 +1,149 @@
+<!-- HERO -->
+<section class="hero">
+  <div class="vgc-container hero__inner">
+    <div class="hero__copy">
+      <span class="vgc-eyebrow">{{ t.heroEyebrow | localize: lang() }}</span>
+      <h1 class="hero__title">{{ t.heroTitle | localize: lang() }}</h1>
+      <p class="hero__vi">{{ t.heroVi | localize: lang() }}</p>
+      <p class="hero__body">{{ t.heroBody | localize: lang() }}</p>
+      <div class="hero__cta">
+        <a pButton rounded size="large" routerLink="/visit" [label]="t.joinSunday | localize: lang()"></a>
+        <a
+          pButton
+          rounded
+          size="large"
+          [outlined]="true"
+          severity="contrast"
+          routerLink="/sermons"
+          [label]="t.watchOnline | localize: lang()"
+        ></a>
+      </div>
+      <div class="hero__chip">
+        <span class="hero__chip-dot" aria-hidden="true"></span>
+        {{ t.serviceChip | localize: lang() }}
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <span class="hero__accent" aria-hidden="true"></span>
+      <div class="hero__photo">
+        <img
+          [ngSrc]="heroImage"
+          fill
+          priority
+          sizes="(max-width: 900px) 100vw, 44vw"
+          alt="Worship at Vietnamese Gospel Church"
+        />
+      </div>
+      <div class="hero__float">
+        <span class="hero__float-day">{{ t.floatDay | localize: lang() }}</span>
+        <span class="hero__float-label">{{ t.floatLabel | localize: lang() }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTURE -->
+<section class="scripture">
+  <div class="vgc-container scripture__inner">
+    <span class="scripture__label">{{ t.scriptureLabel | localize: lang() }}</span>
+    <p class="scripture__verse">{{ t.scripture | localize: lang() }}</p>
+    <span class="scripture__ref">{{ t.scriptureRef | localize: lang() }}</span>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="vgc-section expect">
+  <div class="vgc-container">
+    <div class="expect__head">
+      <span class="vgc-eyebrow vgc-eyebrow--center">{{ t.expectEyebrow | localize: lang() }}</span>
+      <h2 class="section-title">{{ t.expectTitle | localize: lang() }}</h2>
+    </div>
+    <div class="expect__grid">
+      @for (item of expectItems; track item.num) {
+        <article class="expect__card">
+          <span class="expect__num">{{ item.num }}</span>
+          <h3 class="expect__title">{{ item.title | localize: lang() }}</h3>
+          <p class="expect__body">{{ item.body | localize: lang() }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- MINISTRIES BENTO -->
+<section class="vgc-section ministries">
+  <div class="vgc-container">
+    <div class="ministries__head">
+      <div>
+        <span class="vgc-eyebrow">{{ t.minEyebrow | localize: lang() }}</span>
+        <h2 class="section-title">{{ t.minTitle | localize: lang() }}</h2>
+      </div>
+      <a class="link-arrow" routerLink="/ministries">{{ t.minAll | localize: lang() }} →</a>
+    </div>
+    <div class="bento">
+      @for (tile of bentoTiles; track tile.name.en) {
+        <a class="bento__tile" [class]="'bento__tile--' + tile.modifier" routerLink="/ministries">
+          <img [ngSrc]="tile.image" fill sizes="(max-width: 800px) 100vw, 50vw" [alt]="tile.name.en" />
+          <span class="bento__overlay" aria-hidden="true"></span>
+          <span class="bento__caption">
+            <span class="bento__vi">{{ tile.vi | localize: lang() }}</span>
+            <span class="bento__name">{{ tile.name | localize: lang() }}</span>
+          </span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS STRIP -->
+<section class="vgc-section events">
+  <div class="vgc-container">
+    <div class="events__head">
+      <div>
+        <span class="vgc-eyebrow">{{ t.evEyebrow | localize: lang() }}</span>
+        <h2 class="section-title">{{ t.evTitle | localize: lang() }}</h2>
+      </div>
+      <a class="link-arrow" routerLink="/events">{{ t.evAll | localize: lang() }} →</a>
+    </div>
+    <div class="events__grid">
+      @for (ev of upcoming; track ev.id) {
+        <article class="event-card">
+          <div class="event-card__top">
+            <span class="event-card__date">
+              <span class="event-card__wd">{{ ev.weekday | localize: lang() }}</span>
+              <span class="event-card__day">{{ ev.date }}</span>
+              <span class="event-card__mo">{{ ev.month | localize: lang() }}</span>
+            </span>
+            <span class="event-card__tag">{{ ev.category }}</span>
+          </div>
+          <h3 class="event-card__title">{{ ev.title | localize: lang() }}</h3>
+          <p class="event-card__meta">{{ ev.time }} · {{ ev.location | localize: lang() }}</p>
+          <span class="event-card__rule" aria-hidden="true"></span>
+          <a class="link-arrow" routerLink="/events">{{ t.evDetails | localize: lang() }} →</a>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- VISIT CTA -->
+<section class="cta">
+  <div class="vgc-container cta__inner">
+    <span class="cta__eyebrow">{{ t.ctaEyebrow | localize: lang() }}</span>
+    <h2 class="cta__title">{{ t.ctaTitle | localize: lang() }}</h2>
+    <p class="cta__info">{{ t.ctaInfo | localize: lang() }}</p>
+    <div class="cta__btns">
+      <a pButton rounded size="large" [href]="site.mapUrl" target="_blank" rel="noopener" [label]="t.directions | localize: lang()"></a>
+      <a
+        pButton
+        rounded
+        size="large"
+        [outlined]="true"
+        routerLink="/visit"
+        styleClass="cta__ghost"
+        [label]="t.contact | localize: lang()"
+      ></a>
+    </div>
+  </div>
+</section>

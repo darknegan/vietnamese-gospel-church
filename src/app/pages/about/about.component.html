@@ -1,0 +1,104 @@
+<section class="page-head">
+  <div class="vgc-container">
+    <span class="vgc-eyebrow">{{ t.eyebrow | localize: lang() }}</span>
+    <h1>{{ t.title | localize: lang() }}</h1>
+    <p class="page-head__lead">{{ t.lead | localize: lang() }}</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="vgc-section">
+  <div class="vgc-container story">
+    <div class="story__copy">
+      <span class="vgc-eyebrow">{{ t.storyEyebrow | localize: lang() }}</span>
+      <h2 class="section-title">{{ t.storyTitle | localize: lang() }}</h2>
+      <p class="vgc-lead story__p">{{ t.storyP1 | localize: lang() }}</p>
+      <p class="vgc-lead story__p">{{ t.storyP2 | localize: lang() }}</p>
+    </div>
+    <div class="story__media">
+      <img [ngSrc]="storyImage" fill sizes="(max-width: 900px) 100vw, 41vw" alt="Our church family worshiping together" />
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="vgc-section pillars">
+  <div class="vgc-container">
+    <div class="pillars__head">
+      <span class="vgc-eyebrow vgc-eyebrow--center">{{ t.pillarsEyebrow | localize: lang() }}</span>
+      <h2 class="section-title">{{ t.pillarsTitle | localize: lang() }}</h2>
+    </div>
+    <div class="pillars__grid">
+      @for (pillar of pillars; track pillar.title.en) {
+        <article class="pillar">
+          <span class="pillar__icon" aria-hidden="true"><i class="pi pi-bookmark"></i></span>
+          <h3 class="pillar__title">{{ pillar.title | localize: lang() }}</h3>
+          <p class="pillar__body">{{ pillar.body | localize: lang() }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="vgc-section">
+  <div class="vgc-container">
+    <div class="lead-head">
+      <span class="vgc-eyebrow">{{ t.leadersEyebrow | localize: lang() }}</span>
+      <h2 class="section-title">{{ t.leadersTitle | localize: lang() }}</h2>
+    </div>
+    <div class="leaders">
+      @for (leader of leaders; track leader.name) {
+        <article class="leader">
+          <div class="leader__photo">
+            <img [ngSrc]="leader.image" fill sizes="(max-width: 800px) 100vw, 28vw" [alt]="leader.name" />
+          </div>
+          <div class="leader__body">
+            <h3 class="leader__name">{{ leader.name }}</h3>
+            <span class="leader__role">{{ leader.role | localize: lang() }}</span>
+            <p class="leader__bio">{{ leader.bio | localize: lang() }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BELIEVE -->
+<section class="vgc-section beliefs">
+  <div class="vgc-container">
+    <div class="beliefs__head">
+      <span class="vgc-eyebrow vgc-eyebrow--center">{{ t.beliefsEyebrow | localize: lang() }}</span>
+      <h2 class="section-title">{{ t.beliefsTitle | localize: lang() }}</h2>
+      <p class="vgc-lead">{{ t.beliefsLead | localize: lang() }}</p>
+    </div>
+
+    <p-accordion [value]="'0'" styleClass="beliefs__accordion">
+      @for (belief of beliefs; track belief.num; let i = $index) {
+        <p-accordion-panel [value]="i.toString()">
+          <p-accordion-header>
+            <span class="belief__num">{{ belief.num }}</span>
+            <span class="belief__title">{{ belief.title | localize: lang() }}</span>
+          </p-accordion-header>
+          <p-accordion-content>
+            <p class="belief__body">{{ belief.body | localize: lang() }}</p>
+            <div class="belief__refs">
+              <span class="belief__refs-label">{{ t.scripture | localize: lang() }}</span>
+              @for (ref of belief.references; track ref) {
+                <span class="belief__ref">{{ ref }}</span>
+              }
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+      }
+    </p-accordion>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+  <div class="vgc-container about-cta__inner">
+    <h2 class="about-cta__title">{{ t.ctaTitle | localize: lang() }}</h2>
+    <a pButton rounded size="large" routerLink="/visit" [label]="t.visit | localize: lang()"></a>
+  </div>
+</section>

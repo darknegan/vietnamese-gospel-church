@@ -1,0 +1,79 @@
+<section class="page-head">
+  <div class="vgc-container">
+    <span class="vgc-eyebrow">{{ t.eyebrow | localize: lang() }}</span>
+    <h1>{{ t.title | localize: lang() }}</h1>
+    <p class="page-head__lead">{{ t.lead | localize: lang() }}</p>
+  </div>
+</section>
+
+<section class="vgc-section">
+  <div class="vgc-container visit">
+    <div class="visit__main">
+      <h2 class="section-title">{{ t.timesTitle | localize: lang() }}</h2>
+      <div class="times">
+        @for (s of serviceTimes; track s.name.en) {
+          <article class="time">
+            <div class="time__icon" aria-hidden="true"><i class="pi pi-calendar"></i></div>
+            <div class="time__body">
+              <h3 class="time__name">{{ s.name | localize: lang() }}</h3>
+              <p class="time__when">{{ s.day | localize: lang() }} · {{ s.time }}</p>
+              <p class="time__where">{{ s.location | localize: lang() }}</p>
+            </div>
+          </article>
+        }
+      </div>
+
+      <div class="map">
+        <iframe
+          [src]="mapEmbed"
+          title="Map to Vietnamese Gospel Church"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+
+    <aside class="visit__side">
+      <h2 class="visit__sidetitle">{{ t.findUs | localize: lang() }}</h2>
+
+      <div class="info">
+        <span class="info__label">{{ t.address | localize: lang() }}</span>
+        <p class="info__value">{{ site.address.line1 }}<br />{{ site.address.line2 }}</p>
+      </div>
+
+      <div class="info">
+        <span class="info__label">{{ t.contact | localize: lang() }}</span>
+        <p class="info__value">
+          <a [href]="'tel:' + site.phone">{{ site.phone }}</a><br />
+          <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+        </p>
+      </div>
+
+      <a
+        pButton
+        rounded
+        size="large"
+        icon="pi pi-map-marker"
+        [href]="site.mapUrl"
+        target="_blank"
+        rel="noopener"
+        [label]="t.directions | localize: lang()"
+      ></a>
+    </aside>
+  </div>
+</section>
+
+<section class="vgc-section tips">
+  <div class="vgc-container">
+    <h2 class="section-title tips__title">{{ t.tipsTitle | localize: lang() }}</h2>
+    <div class="tips__grid">
+      @for (tip of tips; track tip.title.en) {
+        <article class="tip">
+          <span class="tip__icon" aria-hidden="true"><i [class]="tip.icon"></i></span>
+          <h3 class="tip__title">{{ tip.title | localize: lang() }}</h3>
+          <p class="tip__body">{{ tip.body | localize: lang() }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

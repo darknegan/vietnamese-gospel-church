@@ -1,63 +1,50 @@
-<<<<<<< HEAD
-# VietnameseGospelChurch
+# Vietnamese Gospel Church · Hội Thánh Phúc Âm
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.5.
+A modern, fully bilingual (English / Tiếng Việt) website for Vietnamese Gospel Church,
+built with **Angular 21**, **PrimeNG**, and standalone components.
 
-## Development server
+## Highlights
 
-To start a local development server, run:
+- **Bilingual everywhere** — a signal-based `LanguageService` with a `localize` pipe
+  toggles every piece of content between English and Vietnamese (persisted to
+  `localStorage`). No double i18n builds.
+- **PrimeNG UI** — themed with a custom "Sacred Minimal" crimson preset
+  (`src/app/core/theme.ts`). Uses Button, Accordion, Galleria, and Tag.
+- **Eight pages** — Home, About (with a "What We Believe" accordion), Ministries,
+  Events, Sermons, Gallery, Visit/Contact, and Give (links to an external giving site).
+- **Standalone + OnPush + lazy routes**, modern control flow, and `NgOptimizedImage`.
 
-```bash
-ng serve
+## Project structure
+
+```
+src/app/
+  core/        LanguageService, LocalizePipe, i18n types, PrimeNG theme preset
+  shared/      church-assets.ts, site.data.ts, nav.data.ts
+  layout/      MainLayout, SiteHeader (nav + EN/VI toggle), SiteFooter
+  pages/       home, about, events, give, ministries, sermons, visit, gallery
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Editing content
 
-## Code scaffolding
+Church-specific details are realistic placeholders — update them in:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- `src/app/shared/site.data.ts` — name, address, phone/email, **giving URL**, socials, service times
+- `src/app/pages/**/**.data.ts` — page content (beliefs, events, ministries, sermons, leadership)
+- `src/app/shared/church-assets.ts` — photo paths (images live in `public/assets/`)
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Development
 
 ```bash
-ng generate --help
+npm install
+npm start        # ng serve → http://localhost:4200/
+npm run build    # production build
 ```
 
-## Building
+> Note: on networks with TLS inspection, install with the system certificate store:
+> `set NODE_OPTIONS=--use-system-ca && npm install`
 
-To build the project run:
+## Design
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# vietnamese-gospel-church
->>>>>>> efc19fd8a5e012b9922590b8685cda0b12c5ab21
+Three Figma design directions were explored (Sacred Minimal, Warm Heritage,
+Modern Sanctuary); the site implements **Sacred Minimal**. Brand tokens live in
+`src/styles.scss` (`--vgc-*`) and the PrimeNG preset in `src/app/core/theme.ts`.

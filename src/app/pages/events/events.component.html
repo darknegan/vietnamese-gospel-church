@@ -1,0 +1,83 @@
+<section class="page-head">
+  <div class="vgc-container">
+    <span class="vgc-eyebrow">{{ t.eyebrow | localize: lang() }}</span>
+    <h1>{{ t.title | localize: lang() }}</h1>
+    <p class="page-head__lead">{{ t.lead | localize: lang() }}</p>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="vgc-section">
+  <div class="vgc-container">
+    <article class="featured">
+      <div class="featured__media">
+        <img [ngSrc]="featured.image" fill sizes="(max-width: 900px) 100vw, 48vw" [alt]="featured.title.en" />
+      </div>
+      <div class="featured__body">
+        <span class="featured__label">{{ t.featuredLabel | localize: lang() }}</span>
+        <h2 class="featured__title">{{ featured.title | localize: lang() }}</h2>
+        <ul class="featured__meta">
+          <li><i class="pi pi-calendar"></i> {{ featured.weekday | localize: lang() }} · {{ featured.date }} {{ featured.month | localize: lang() }}</li>
+          <li><i class="pi pi-clock"></i> {{ featured.time }}</li>
+          <li><i class="pi pi-map-marker"></i> {{ featured.location | localize: lang() }}</li>
+        </ul>
+        <p class="featured__desc">{{ featured.description | localize: lang() }}</p>
+        <div class="featured__btns">
+          <p-button rounded [label]="t.rsvp | localize: lang()" />
+          <p-button rounded [outlined]="true" severity="contrast" icon="pi pi-calendar-plus" [label]="t.addCalendar | localize: lang()" />
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- FILTER + GROUPS -->
+<section class="vgc-section events-list">
+  <div class="vgc-container">
+    <div class="filters" role="group" aria-label="Filter events by category">
+      @for (filter of filters; track filter.id) {
+        <button
+          type="button"
+          class="filter"
+          [class.is-active]="activeFilter() === filter.id"
+          (click)="setFilter(filter.id)"
+        >
+          {{ filter.label | localize: lang() }}
+        </button>
+      }
+    </div>
+
+    @for (group of visibleGroups(); track group.label.en) {
+      <div class="group">
+        <h2 class="group__label">{{ group.label | localize: lang() }}</h2>
+        <div class="group__grid">
+          @for (ev of group.events; track ev.id) {
+            <article class="ev">
+              <div class="ev__media">
+                <img [ngSrc]="ev.image" fill sizes="(max-width: 700px) 100vw, 30vw" [alt]="ev.title.en" />
+                <span class="ev__date">
+                  <span class="ev__day">{{ ev.date }}</span>
+                  <span class="ev__mo">{{ ev.month | localize: lang() }}</span>
+                </span>
+              </div>
+              <div class="ev__body">
+                <p-tag [value]="ev.category" styleClass="ev__tag" />
+                <h3 class="ev__title">{{ ev.title | localize: lang() }}</h3>
+                <p class="ev__meta">
+                  <i class="pi pi-clock"></i> {{ ev.time }} · {{ ev.location | localize: lang() }}
+                </p>
+                <p class="ev__desc">{{ ev.description | localize: lang() }}</p>
+                <div class="ev__btns">
+                  <p-button size="small" rounded [label]="t.rsvp | localize: lang()" />
+                  <p-button size="small" rounded text icon="pi pi-calendar-plus" [label]="t.addCalendar | localize: lang()" />
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+    } @empty {
+      <p class="empty">{{ t.empty | localize: lang() }}</p>
+    }
+  </div>
+</section>

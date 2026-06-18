@@ -1,0 +1,43 @@
+<footer class="ftr">
+  <div class="vgc-container ftr__inner">
+    <div class="ftr__cols">
+      <div class="ftr__brand">
+        <div class="ftr__brandline">
+          <span class="ftr__cross" aria-hidden="true">
+            <span class="ftr__cross-v"></span>
+            <span class="ftr__cross-h"></span>
+          </span>
+          <span class="ftr__name">Vietnamese Gospel Church</span>
+        </div>
+        <p class="ftr__blurb">{{ blurb | localize: lang() }}</p>
+        <p class="ftr__vi">Hội Thánh Phúc Âm · {{ site.address.line2 }}</p>
+      </div>
+
+      @for (col of columns; track col.title.en) {
+        <nav class="ftr__col" [attr.aria-label]="col.title | localize: lang()">
+          <h2 class="ftr__coltitle">{{ col.title | localize: lang() }}</h2>
+          <ul>
+            @for (link of col.links; track link.label.en) {
+              <li><a [routerLink]="link.path">{{ link.label | localize: lang() }}</a></li>
+            }
+          </ul>
+        </nav>
+      }
+    </div>
+
+    <div class="ftr__legal">
+      <p>© {{ year }} Vietnamese Gospel Church. {{ rights | localize: lang() }}</p>
+      <div class="ftr__social">
+        <a [href]="site.social.facebook" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="pi pi-facebook"></i>
+        </a>
+        <a [href]="site.social.youtube" target="_blank" rel="noopener" aria-label="YouTube">
+          <i class="pi pi-youtube"></i>
+        </a>
+        <a [href]="site.social.instagram" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="pi pi-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

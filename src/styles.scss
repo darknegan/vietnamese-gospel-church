@@ -1,1 +1,198 @@
-/* You can add global styles to this file, and also import other style files */
+/* Vietnamese Gospel Church — global styles & design tokens (Sacred Minimal) */
+
+:root {
+  /* Brand palette */
+  --vgc-ink: #15110e;
+  --vgc-ink-soft: #2a2420;
+  --vgc-crimson: #8a2433;
+  --vgc-crimson-dark: #71202c;
+  --vgc-gold: #b68a4e;
+  --vgc-ivory: #f6f1e9;
+  --vgc-ivory-deep: #efe7da;
+  --vgc-surface: #ffffff;
+  --vgc-muted: #6e645a;
+  --vgc-border: #e4dacb;
+  --vgc-on-dark: #f6f1e9;
+  --vgc-on-dark-muted: #b9ad9d;
+
+  /* Typography */
+  --vgc-font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --vgc-font-body: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Layout */
+  --vgc-container: 1280px;
+  --vgc-header-h: 76px;
+  --vgc-radius: 16px;
+  --vgc-radius-sm: 12px;
+  --vgc-shadow: 0 18px 48px rgba(21, 17, 14, 0.12);
+  --vgc-shadow-sm: 0 8px 24px rgba(21, 17, 14, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--vgc-font-body);
+  color: var(--vgc-ink);
+  background: var(--vgc-ivory);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--vgc-font-display);
+  color: var(--vgc-ink);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Skip link for accessibility */
+.vgc-skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 200;
+  background: var(--vgc-crimson);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 8px 0;
+
+  &:focus {
+    left: 0;
+  }
+}
+
+/* Shared layout helpers */
+.vgc-container {
+  width: 100%;
+  max-width: var(--vgc-container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 4rem);
+}
+
+.vgc-section {
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.vgc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vgc-crimson);
+
+  &::before {
+    content: '';
+    width: 1.8rem;
+    height: 2px;
+    background: currentColor;
+  }
+
+  &.vgc-eyebrow--center::before {
+    display: none;
+  }
+}
+
+.vgc-display {
+  font-family: var(--vgc-font-display);
+  font-weight: 700;
+}
+
+.vgc-lead {
+  color: var(--vgc-muted);
+  font-size: 1.0625rem;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  color: var(--vgc-ink);
+  margin-top: 0.6rem;
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--vgc-crimson);
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--vgc-crimson-dark);
+  }
+}
+
+/* Inner-page hero band */
+.page-head {
+  background: var(--vgc-ink);
+  color: var(--vgc-on-dark);
+  padding-block: clamp(3rem, 6vw, 5rem);
+
+  .vgc-eyebrow {
+    color: var(--vgc-gold);
+  }
+
+  h1 {
+    color: var(--vgc-on-dark);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    margin-top: 0.7rem;
+  }
+
+  .page-head__lead {
+    color: var(--vgc-on-dark-muted);
+    font-size: 1.05rem;
+    max-width: 60ch;
+    margin-top: 1rem;
+  }
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--vgc-crimson) 55%, transparent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* PrimeNG button tone tweaks to match brand */
+.p-button {
+  font-family: var(--vgc-font-body);
+  font-weight: 600;
+}
+
+.p-button.p-button-rounded {
+  border-radius: 999px;
+}

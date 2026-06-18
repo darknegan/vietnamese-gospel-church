@@ -1,0 +1,41 @@
+<section class="page-head">
+  <div class="vgc-container">
+    <span class="vgc-eyebrow">{{ t.eyebrow | localize: lang() }}</span>
+    <h1>{{ t.title | localize: lang() }}</h1>
+    <p class="page-head__lead">{{ t.lead | localize: lang() }}</p>
+  </div>
+</section>
+
+<section class="vgc-section">
+  <div class="vgc-container">
+    <p-galleria
+      [value]="featured"
+      [responsiveOptions]="responsiveOptions"
+      [numVisible]="5"
+      [circular]="true"
+      [showItemNavigators]="true"
+      [showThumbnails]="true"
+      [containerStyle]="{ 'max-width': '960px', margin: '0 auto' }"
+    >
+      <ng-template #item let-item>
+        <img [src]="item.src" [alt]="item.alt" class="galleria-item" />
+      </ng-template>
+      <ng-template #thumbnail let-item>
+        <img [src]="item.src" [alt]="item.alt" class="galleria-thumb" />
+      </ng-template>
+    </p-galleria>
+  </div>
+</section>
+
+<section class="vgc-section gallery-more">
+  <div class="vgc-container">
+    <h2 class="section-title gallery-more__title">{{ t.moreTitle | localize: lang() }}</h2>
+    <div class="masonry">
+      @for (img of grid; track img.src) {
+        <figure class="masonry__item">
+          <img [ngSrc]="img.src" fill sizes="(max-width: 700px) 50vw, 33vw" [alt]="img.alt" />
+        </figure>
+      }
+    </div>
+  </div>
+</section>

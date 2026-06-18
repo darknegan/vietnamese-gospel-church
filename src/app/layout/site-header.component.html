@@ -1,0 +1,90 @@
+<header class="hdr">
+  <div class="hdr__inner vgc-container">
+    <a class="brand" routerLink="/" (click)="closeMobile()" aria-label="Vietnamese Gospel Church — home">
+      <span class="brand__cross" aria-hidden="true">
+        <span class="brand__cross-v"></span>
+        <span class="brand__cross-h"></span>
+      </span>
+      <span class="brand__text">
+        <span class="brand__name">Vietnamese Gospel Church</span>
+        <span class="brand__vi">Hội Thánh Phúc Âm</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <ul class="nav__list">
+        @for (item of navItems; track item.path) {
+          <li>
+            <a
+              class="nav__link"
+              [routerLink]="item.path"
+              routerLinkActive="is-active"
+              [routerLinkActiveOptions]="{ exact: item.exact ?? false }"
+            >
+              {{ item.label | localize: lang() }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="actions">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" class="lang__btn" [class.is-active]="lang() === 'en'" (click)="setLang('en')">
+          EN
+        </button>
+        <span class="lang__sep" aria-hidden="true">/</span>
+        <button type="button" class="lang__btn" [class.is-active]="lang() === 'vi'" (click)="setLang('vi')">
+          VI
+        </button>
+      </div>
+
+      <a class="give-link" routerLink="/give">{{ giveLabel | localize: lang() }}</a>
+
+      <a pButton rounded [routerLink]="'/visit'" class="visit-btn" [label]="visitLabel | localize: lang()"></a>
+
+      <button
+        type="button"
+        class="burger"
+        [attr.aria-expanded]="mobileOpen()"
+        aria-label="Toggle menu"
+        (click)="toggleMobile()"
+      >
+        <i class="pi" [class.pi-bars]="!mobileOpen()" [class.pi-times]="mobileOpen()"></i>
+      </button>
+    </div>
+  </div>
+
+  @if (mobileOpen()) {
+    <nav class="mobile" aria-label="Mobile navigation">
+      <ul class="mobile__list">
+        @for (item of navItems; track item.path) {
+          <li>
+            <a
+              class="mobile__link"
+              [routerLink]="item.path"
+              routerLinkActive="is-active"
+              [routerLinkActiveOptions]="{ exact: item.exact ?? false }"
+              (click)="closeMobile()"
+            >
+              {{ item.label | localize: lang() }}
+            </a>
+          </li>
+        }
+        <li>
+          <a class="mobile__link mobile__link--give" routerLink="/give" (click)="closeMobile()">
+            {{ giveLabel | localize: lang() }}
+          </a>
+        </li>
+      </ul>
+      <a
+        pButton
+        rounded
+        [routerLink]="'/visit'"
+        class="mobile__cta"
+        [label]="visitLabel | localize: lang()"
+        (click)="closeMobile()"
+      ></a>
+    </nav>
+  }
+</header>

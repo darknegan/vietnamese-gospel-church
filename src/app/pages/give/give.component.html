@@ -1,0 +1,48 @@
+<section class="page-head">
+  <div class="vgc-container">
+    <span class="vgc-eyebrow">{{ t.eyebrow | localize: lang() }}</span>
+    <h1>{{ t.title | localize: lang() }}</h1>
+    <p class="page-head__lead">{{ t.lead | localize: lang() }}</p>
+  </div>
+</section>
+
+<section class="vgc-section">
+  <div class="vgc-container give">
+    <div class="give__card">
+      <span class="give__label">{{ t.cardLabel | localize: lang() }}</span>
+      <h2 class="give__title">{{ t.cardTitle | localize: lang() }}</h2>
+      <p class="give__body">{{ t.cardBody | localize: lang() }}</p>
+      <a
+        pButton
+        rounded
+        size="large"
+        icon="pi pi-heart-fill"
+        [href]="site.givingUrl"
+        target="_blank"
+        rel="noopener"
+        [label]="t.giveBtn | localize: lang()"
+      ></a>
+      <p class="give__note"><i class="pi pi-external-link"></i> {{ t.note | localize: lang() }}</p>
+    </div>
+
+    <figure class="give__verse">
+      <blockquote>{{ t.verse | localize: lang() }}</blockquote>
+      <figcaption>{{ t.verseRef | localize: lang() }}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="vgc-section give-ways">
+  <div class="vgc-container">
+    <h2 class="section-title give-ways__title">{{ t.waysTitle | localize: lang() }}</h2>
+    <div class="give-ways__grid">
+      @for (way of ways; track way.title.en) {
+        <article class="way">
+          <span class="way__icon" aria-hidden="true"><i [class]="way.icon"></i></span>
+          <h3 class="way__title">{{ way.title | localize: lang() }}</h3>
+          <p class="way__body">{{ way.body | localize: lang() }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

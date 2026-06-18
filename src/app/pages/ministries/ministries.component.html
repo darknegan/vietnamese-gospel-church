@@ -1,0 +1,37 @@
+<section class="page-head">
+  <div class="vgc-container">
+    <span class="vgc-eyebrow">{{ t.eyebrow | localize: lang() }}</span>
+    <h1>{{ t.title | localize: lang() }}</h1>
+    <p class="page-head__lead">{{ t.lead | localize: lang() }}</p>
+  </div>
+</section>
+
+<section class="vgc-section">
+  <div class="vgc-container">
+    <div class="min-grid">
+      @for (m of ministries; track m.id) {
+        <article class="min-card">
+          <div class="min-card__media">
+            <img [ngSrc]="m.image" fill sizes="(max-width: 800px) 100vw, 31vw" [alt]="m.name.en" />
+            <span class="min-card__tagline">{{ m.tagline | localize: lang() }}</span>
+          </div>
+          <div class="min-card__body">
+            <h2 class="min-card__name">{{ m.name | localize: lang() }}</h2>
+            <p class="min-card__meta"><i class="pi pi-clock"></i> {{ m.meta | localize: lang() }}</p>
+            <p class="min-card__desc">{{ m.description | localize: lang() }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="min-cta">
+  <div class="vgc-container min-cta__inner">
+    <div>
+      <h2 class="min-cta__title">{{ t.ctaTitle | localize: lang() }}</h2>
+      <p class="min-cta__body">{{ t.ctaBody | localize: lang() }}</p>
+    </div>
+    <a pButton rounded size="large" routerLink="/visit" [label]="t.visit | localize: lang()"></a>
+  </div>
+</section>
