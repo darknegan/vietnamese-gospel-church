@@ -32,7 +32,7 @@
           fill
           priority
           sizes="(max-width: 900px) 100vw, 44vw"
-          alt="Worship at Vietnamese Gospel Church"
+          alt="Fellowship at Vietnamese Gospel Church"
         />
       </div>
       <div class="hero__float">
@@ -83,8 +83,15 @@
     </div>
     <div class="bento">
       @for (tile of bentoTiles; track tile.name.en) {
-        <a class="bento__tile" [class]="'bento__tile--' + tile.modifier" routerLink="/ministries">
-          <img [ngSrc]="tile.image" fill sizes="(max-width: 800px) 100vw, 50vw" [alt]="tile.name.en" />
+        <a [class]="'bento__tile bento__tile--' + tile.modifier" routerLink="/ministries">
+          <img
+            [ngSrc]="tile.image"
+            fill
+            sizes="(max-width: 800px) 100vw, 50vw"
+            [alt]="tile.name.en"
+            [style.object-fit]="'cover'"
+            [style.object-position]="tile.objectPosition ?? 'center center'"
+          />
           <span class="bento__overlay" aria-hidden="true"></span>
           <span class="bento__caption">
             <span class="bento__vi">{{ tile.vi | localize: lang() }}</span>

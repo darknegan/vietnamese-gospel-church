@@ -22,7 +22,7 @@ export class VisitComponent {
   readonly serviceTimes = SERVICE_TIMES;
 
   readonly mapEmbed: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-    'https://www.google.com/maps?q=Garden+Grove+CA&output=embed',
+    'https://www.google.com/maps?q=626+W+Olive+St,+Rogers,+AR+72756&output=embed',
   );
 
   readonly tips: readonly { icon: string; title: Localized; body: Localized }[] = [

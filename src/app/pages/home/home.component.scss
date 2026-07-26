@@ -246,6 +246,11 @@
 .bento__tile--wide {
   grid-area: wide;
   min-height: 230px;
+
+  img {
+    object-fit: cover;
+    object-position: center 88%;
+  }
 }
 
 .bento__overlay {

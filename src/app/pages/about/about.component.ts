@@ -3,16 +3,18 @@ import { NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { AccordionModule } from 'primeng/accordion';
+import { TooltipModule } from 'primeng/tooltip';
 import { LanguageService } from '../../core/language.service';
 import { LocalizePipe } from '../../core/localize.pipe';
 import { Localized } from '../../core/i18n.types';
 import { PEOPLE, SINGING } from '../../shared/church-assets';
 import { LEADERS, PILLARS } from './about.data';
 import { BELIEFS } from './about-beliefs.data';
+import { scriptureTooltip } from './scripture-esv.data';
 
 @Component({
   selector: 'app-about',
-  imports: [NgOptimizedImage, RouterLink, ButtonModule, AccordionModule, LocalizePipe],
+  imports: [NgOptimizedImage, RouterLink, ButtonModule, AccordionModule, TooltipModule, LocalizePipe],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,6 +28,7 @@ export class AboutComponent {
   readonly leaders = LEADERS;
   readonly pillars = PILLARS;
   readonly beliefs = BELIEFS;
+  readonly scriptureTooltip = scriptureTooltip;
 
   readonly t = {
     eyebrow: { en: 'About us', vi: 'Về chúng tôi' } as Localized,

@@ -1,25 +1,29 @@
 import { Localized } from '../../core/i18n.types';
-import { HEADSHOT, PASTOR, PEOPLE } from '../../shared/church-assets';
+import { COMMUNION, HEADSHOT, PEOPLE } from '../../shared/church-assets';
 
 export interface Leader {
   readonly name: string;
   readonly role: Localized;
   readonly bio: Localized;
   readonly image: string;
+  readonly objectPosition?: string;
+  readonly imageScale?: number;
 }
 
 export const LEADERS: readonly Leader[] = [
   {
-    name: 'Pastor John Nguyễn',
+    name: 'Pastor Duc',
     role: { en: 'Lead Pastor', vi: 'Mục Sư Quản Nhiệm' },
     bio: {
-      en: 'John has shepherded our church family for over a decade, preaching the gospel in both Vietnamese and English.',
-      vi: 'Mục sư John đã chăn dắt gia đình hội thánh hơn mười năm, rao giảng Phúc Âm bằng cả tiếng Việt và tiếng Anh.',
+      en: 'Alex has shepherded our church family for over a decade, preaching the gospel in both Vietnamese and English.',
+      vi: 'Mục sư Alex đã chăn dắt gia đình hội thánh hơn mười năm, rao giảng Phúc Âm bằng cả tiếng Việt và tiếng Anh.',
     },
-    image: PASTOR,
+    image: COMMUNION,
+    objectPosition: 'center center',
+    imageScale: 1.45,
   },
   {
-    name: 'Mary Trần',
+    name: 'Alex Huff',
     role: { en: 'Director of Family Ministries', vi: 'Trưởng Ban Gia Đình' },
     bio: {
       en: 'Mary leads our children and youth ministries, helping the next generation know and follow Jesus.',
@@ -28,7 +32,7 @@ export const LEADERS: readonly Leader[] = [
     image: HEADSHOT,
   },
   {
-    name: 'David Lê',
+    name: 'Denny Nguyễn',
     role: { en: 'Worship & Music Lead', vi: 'Trưởng Ban Thờ Phượng' },
     bio: {
       en: 'David guides our worship team, blending Vietnamese hymns and contemporary songs each Sunday.',

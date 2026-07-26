@@ -19,7 +19,7 @@ export const MINISTRIES: readonly Ministry[] = [
       en: 'A safe, joyful place where kids learn about Jesus through Bible stories, songs, and play — with caring, screened volunteers.',
       vi: 'Một nơi an toàn và vui tươi để các em nhỏ học biết Chúa Giê-xu qua câu chuyện Kinh Thánh, bài hát và trò chơi — với các tình nguyện viên tận tâm.',
     },
-    meta: { en: 'Sundays · 10:30 AM', vi: 'Chúa Nhật · 10:30 AM' },
+    meta: { en: 'Sundays · 3:00 PM', vi: 'Chúa Nhật · 3:00 PM' },
     image: KIDS[0],
   },
   {
@@ -74,7 +74,7 @@ export const MINISTRIES: readonly Ministry[] = [
       en: 'We gather midweek to pray for one another and our city, and to dig deeper into God’s word together.',
       vi: 'Chúng tôi nhóm lại giữa tuần để cầu nguyện cho nhau và cho thành phố, cùng nhau tìm hiểu sâu hơn Lời Chúa.',
     },
-    meta: { en: 'Wednesdays · 7:00 PM', vi: 'Thứ Tư · 7:00 PM' },
+    meta: { en: 'Tuesdays · 6:00 PM', vi: 'Thứ Ba · 6:00 PM' },
     image: TEACHING[0],
   },
 ];

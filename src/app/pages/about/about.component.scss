@@ -93,6 +93,7 @@
 .leader__photo {
   position: relative;
   aspect-ratio: 4 / 3;
+  overflow: hidden;
 
   img {
     object-fit: cover;
@@ -106,19 +107,6 @@
 .leader__name {
   font-family: var(--vgc-font-display);
   font-size: 1.3rem;
-}
-
-.leader__role {
-  display: block;
-  color: var(--vgc-crimson);
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-block: 0.25rem 0.75rem;
-}
-
-.leader__bio {
-  color: var(--vgc-muted);
-  font-size: 0.95rem;
 }
 
 /* BELIEFS */
@@ -185,6 +173,16 @@
   font-weight: 500;
   padding: 0.25rem 0.65rem;
   border-radius: 999px;
+  cursor: help;
+  border: none;
+  font-family: inherit;
+  transition: background-color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: color-mix(in srgb, var(--vgc-crimson) 16%, transparent);
+    outline: none;
+  }
 }
 
 /* CTA */

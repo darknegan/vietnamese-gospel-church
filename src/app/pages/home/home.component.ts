@@ -29,11 +29,18 @@ export class HomeComponent {
     name: Localized;
     vi: Localized;
     modifier: string;
+    objectPosition?: string;
   }[] = [
-    { image: KIDS[0], name: { en: 'Kids & Families', vi: 'Thiếu Nhi & Gia Đình' }, vi: { en: 'Thiếu nhi', vi: 'Thiếu nhi' }, modifier: 'tall' },
+    { image: KIDS[1], name: { en: 'Kids & Families', vi: 'Thiếu Nhi & Gia Đình' }, vi: { en: 'Thiếu nhi', vi: 'Thiếu nhi' }, modifier: 'tall' },
     { image: TEACHING[0], name: { en: 'Bible Teaching', vi: 'Học Kinh Thánh' }, vi: { en: 'Học Kinh Thánh', vi: 'Lời Chúa' }, modifier: 'small' },
     { image: PEOPLE[0], name: { en: 'Fellowship', vi: 'Thông Công' }, vi: { en: 'Thông công', vi: 'Cộng đồng' }, modifier: 'small' },
-    { image: TET[0], name: { en: 'Community & Cultural Life', vi: 'Đời Sống Cộng Đồng' }, vi: { en: 'Đời sống cộng đồng', vi: 'Văn hóa' }, modifier: 'wide' },
+    {
+      image: TET[2],
+      name: { en: 'Community & Cultural Life', vi: 'Đời Sống Cộng Đồng' },
+      vi: { en: 'Đời sống cộng đồng', vi: 'Văn hóa' },
+      modifier: 'wide',
+      objectPosition: 'center 88%',
+    },
   ];
 
   readonly expectItems = WHAT_TO_EXPECT;
@@ -54,8 +61,8 @@ export class HomeComponent {
     joinSunday: { en: 'Join us Sunday', vi: 'Cùng nhóm Chúa Nhật' } as Localized,
     watchOnline: { en: 'Watch online', vi: 'Xem trực tuyến' } as Localized,
     serviceChip: {
-      en: 'Sunday Worship · 10:30 AM · Tiếng Việt & English',
-      vi: 'Thờ phượng Chúa Nhật · 10:30 AM · Tiếng Việt & English',
+      en: 'Sunday Worship · 3:00 PM · Tiếng Việt & English',
+      vi: 'Thờ phượng Chúa Nhật · 3:00 PM · Tiếng Việt & English',
     } as Localized,
     floatDay: { en: 'Sunday', vi: 'Chúa Nhật' } as Localized,
     floatLabel: { en: 'Word & Worship', vi: 'Lời Chúa & Thờ phượng' } as Localized,
@@ -77,8 +84,8 @@ export class HomeComponent {
     ctaEyebrow: { en: 'Visit us', vi: 'Ghé thăm chúng tôi' } as Localized,
     ctaTitle: { en: 'We would love to meet you this Sunday.', vi: 'Chúng tôi rất mong gặp bạn Chúa Nhật này.' } as Localized,
     ctaInfo: {
-      en: '1234 Gospel Way, Garden Grove, CA · Sundays at 10:30 AM',
-      vi: '1234 Gospel Way, Garden Grove, CA · Chúa Nhật lúc 10:30 AM',
+      en: '626 W Olive St, Rogers, AR · Sundays at 3:00 PM',
+      vi: '626 W Olive St, Rogers, AR · Chúa Nhật lúc 3:00 PM',
     } as Localized,
     directions: { en: 'Get directions', vi: 'Chỉ đường' } as Localized,
     contact: { en: 'Contact us', vi: 'Liên hệ' } as Localized,

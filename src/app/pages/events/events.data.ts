@@ -61,7 +61,7 @@ export const EVENT_GROUPS: readonly EventGroup[] = [
         weekday: { en: 'Sun', vi: 'CN' },
         date: '22',
         month: { en: 'Jun', vi: 'Th6' },
-        time: '10:30 AM',
+        time: '3:00 PM',
         location: { en: 'Main Sanctuary', vi: 'Nhà thờ chính' },
         title: { en: 'Sunday Worship Service', vi: 'Thờ Phượng Chúa Nhật' },
         description: {
@@ -71,13 +71,13 @@ export const EVENT_GROUPS: readonly EventGroup[] = [
         image: SINGING[0],
       },
       {
-        id: 'wed-prayer',
+        id: 'tue-prayer',
         category: 'Prayer',
-        weekday: { en: 'Wed', vi: 'T4' },
-        date: '25',
+        weekday: { en: 'Tue', vi: 'T3' },
+        date: '24',
         month: { en: 'Jun', vi: 'Th6' },
-        time: '7:00 PM',
-        location: { en: 'Fellowship Hall', vi: 'Phòng Thông Công' },
+        time: '6:00 PM',
+        location: { en: 'Online', vi: 'Trực tuyến' },
         title: { en: 'Prayer & Bible Study', vi: 'Cầu Nguyện & Học Kinh Thánh' },
         description: {
           en: 'A midweek gathering to pray together and study the Scriptures.',

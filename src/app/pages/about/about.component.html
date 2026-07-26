@@ -51,12 +51,19 @@
       @for (leader of leaders; track leader.name) {
         <article class="leader">
           <div class="leader__photo">
-            <img [ngSrc]="leader.image" fill sizes="(max-width: 800px) 100vw, 28vw" [alt]="leader.name" />
+            <img
+              [ngSrc]="leader.image"
+              fill
+              sizes="(max-width: 800px) 100vw, 28vw"
+              [alt]="leader.name"
+              [style.object-fit]="'cover'"
+              [style.object-position]="leader.objectPosition ?? 'center center'"
+              [style.transform]="leader.imageScale ? 'scale(' + leader.imageScale + ')' : null"
+              [style.transform-origin]="leader.imageScale ? 'center center' : null"
+            />
           </div>
           <div class="leader__body">
             <h3 class="leader__name">{{ leader.name }}</h3>
-            <span class="leader__role">{{ leader.role | localize: lang() }}</span>
-            <p class="leader__bio">{{ leader.bio | localize: lang() }}</p>
           </div>
         </article>
       }
@@ -85,7 +92,15 @@
             <div class="belief__refs">
               <span class="belief__refs-label">{{ t.scripture | localize: lang() }}</span>
               @for (ref of belief.references; track ref) {
-                <span class="belief__ref">{{ ref }}</span>
+                <button
+                  type="button"
+                  class="belief__ref"
+                  [pTooltip]="scriptureTooltip(ref)"
+                  tooltipPosition="top"
+                  tooltipStyleClass="scripture-tooltip"
+                  appendTo="body"
+                  [attr.aria-label]="ref + ', ESV scripture reference'"
+                >{{ ref }}</button>
               }
             </div>
           </p-accordion-content>

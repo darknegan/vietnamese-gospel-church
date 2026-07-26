@@ -196,3 +196,19 @@ img {
 .p-button.p-button-rounded {
   border-radius: 999px;
 }
+
+/* Scripture reference tooltips (About → What we believe) */
+.p-tooltip.scripture-tooltip {
+  min-width: 22rem;
+  max-width: min(32rem, 92vw) !important;
+  width: max-content !important;
+
+  .p-tooltip-text {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.55;
+    font-size: 0.88rem;
+    text-align: left;
+  }
+}

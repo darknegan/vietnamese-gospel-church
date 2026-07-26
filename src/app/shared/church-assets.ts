@@ -88,4 +88,4 @@ export const GALLERY = [
   FOOD[2],
 ];
 
-export const HERO_WORSHIP = SINGING[0];
+export const HERO_WORSHIP = PEOPLE[1];
