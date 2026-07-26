@@ -40,6 +40,30 @@ npm start        # ng serve → http://localhost:4200/
 npm run build    # production build
 ```
 
+## Deploy to Cloudflare Workers
+
+This site is configured as a static-assets Worker with SPA routing
+(`wrangler.jsonc`). Angular client routes are served via
+`not_found_handling: single-page-application`.
+
+### Prerequisites
+
+1. A [Cloudflare account](https://dash.cloudflare.com/sign-up)
+2. Authenticate Wrangler: `npx wrangler login`
+3. (Optional) Authenticate the Cloudflare MCP servers in Cursor
+   (**Cloudflare-bindings**, **Cloudflare-builds**) for deploy/build
+   management from the IDE
+
+### Commands
+
+```bash
+npm run preview:worker   # build + local Worker preview at http://localhost:8787
+npm run deploy         # build + deploy to Cloudflare Workers
+```
+
+After the first deploy, Wrangler prints your `*.workers.dev` URL.
+You can also attach a custom domain in the Cloudflare dashboard.
+
 > Note: on networks with TLS inspection, install with the system certificate store:
 > `set NODE_OPTIONS=--use-system-ca && npm install`
 
