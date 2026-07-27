@@ -51,21 +51,27 @@ This site is configured as a static-assets Worker with SPA routing
 Temporary preview deploys expire after about an hour. For a stable URL, use one of
 these options:
 
-**Option A — GitHub Actions (recommended)**
-
-1. In Cloudflare, create an API token with **Edit Cloudflare Workers** permission.
-2. Add these GitHub repository secrets:
-   - `CLOUDFLARE_API_TOKEN`
-   - `CLOUDFLARE_ACCOUNT_ID`
-3. Merge to `main`. The workflow in `.github/workflows/deploy-worker.yml` builds and
-   deploys automatically.
-
-**Option B — Local deploy**
+**Option A — Deploy from your machine (fastest first time)**
 
 ```bash
-npx wrangler login
-npm run deploy
+git pull origin main
+npm install
+npx wrangler login          # opens browser to authenticate with Cloudflare
+npm run deploy              # builds Angular + deploys to your account
 ```
+
+Wrangler prints a permanent `https://vietnamese-gospel-church.<your-subdomain>.workers.dev`
+URL. That URL stays live until you delete the Worker.
+
+**Option B — GitHub Actions (best for ongoing deploys)**
+
+1. In Cloudflare, go to **My Profile → API Tokens** and create a token with
+   **Edit Cloudflare Workers** permission.
+2. Copy your **Account ID** from the Cloudflare dashboard (Workers & Pages → right sidebar).
+3. Add these GitHub repository secrets:
+   - `CLOUDFLARE_API_TOKEN`
+   - `CLOUDFLARE_ACCOUNT_ID`
+4. Push to `main` or run the **Deploy Worker** workflow manually from the Actions tab.
 
 ### Local preview
 
