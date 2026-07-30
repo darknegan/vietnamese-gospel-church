@@ -183,12 +183,6 @@
   .give-link {
     display: none;
   }
-}
-
-@media (max-width: 768px) {
-  .visit-btn {
-    display: none;
-  }
 
   .burger {
     display: inline-flex;
@@ -228,9 +222,25 @@
   .mobile__link--give {
     color: var(--vgc-crimson);
     font-weight: 600;
+    border-bottom: 0;
+    padding-top: 1rem;
+    margin-top: 0.25rem;
+    border-top: 1px solid var(--vgc-border);
   }
 
   .mobile__cta {
     align-self: flex-start;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .mobile__cta {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .visit-btn {
+    display: none;
   }
 }
