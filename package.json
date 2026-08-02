@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "node --use-system-ca ./node_modules/@angular/cli/bin/ng.js serve",
+    "build": "node --use-system-ca ./node_modules/@angular/cli/bin/ng.js build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "preview:worker": "npm run build && wrangler dev",
-    "deploy": "npm run build && wrangler deploy"
+    "preview:worker": "npm run build && node --use-system-ca ./node_modules/wrangler/bin/wrangler.js dev",
+    "deploy": "npm run build && node --use-system-ca ./node_modules/wrangler/bin/wrangler.js deploy",
+    "wrangler:login": "node --use-system-ca ./node_modules/wrangler/bin/wrangler.js login"
   },
   "private": true,
   "packageManager": "npm@11.8.0",
