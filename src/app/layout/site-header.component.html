@@ -47,10 +47,10 @@
         type="button"
         class="burger"
         [attr.aria-expanded]="mobileOpen()"
-        aria-label="Toggle menu"
+        [attr.aria-label]="menuLabel | localize: lang()"
         (click)="toggleMobile()"
       >
-        <i class="pi" [class.pi-bars]="!mobileOpen()" [class.pi-times]="mobileOpen()"></i>
+        <i class="pi" [class.pi-bars]="!mobileOpen()" [class.pi-times]="mobileOpen()" aria-hidden="true"></i>
       </button>
     </div>
   </div>
