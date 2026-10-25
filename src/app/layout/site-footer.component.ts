@@ -55,7 +55,13 @@ export class SiteFooterComponent {
     },
     {
       title: { en: 'Connect', vi: 'Kết Nối' },
-      links: [{ label: { en: 'Give online', vi: 'Dâng hiến' }, path: '/give' }],
+      links: [
+        {
+          label: { en: 'Give online', vi: 'Dâng hiến' },
+          path: SITE.givingUrl,
+          external: true,
+        },
+      ],
     },
   ];
 

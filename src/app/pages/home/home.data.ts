@@ -11,8 +11,8 @@ export const WHAT_TO_EXPECT: readonly ExpectItem[] = [
     num: '01',
     title: { en: 'A warm welcome', vi: 'Sự chào đón nồng ấm' },
     body: {
-      en: 'Arrive a few minutes early and our greeters will help you find coffee, a seat, and kids check-in.',
-      vi: 'Hãy đến sớm vài phút, ban tiếp tân sẽ giúp bạn tìm chỗ ngồi, cà phê và nơi gửi các em nhỏ.',
+      en: 'Arrive a few minutes early and our greeters will welcome you, help you find a seat, and show you kids check-in.',
+      vi: 'Hãy đến sớm vài phút — ban tiếp tân sẽ chào đón bạn, giúp tìm chỗ ngồi và hướng dẫn nơi gửi các em nhỏ.',
     },
   },
   {

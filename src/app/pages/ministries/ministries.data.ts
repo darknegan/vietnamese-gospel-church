@@ -1,5 +1,5 @@
 import { Localized } from '../../core/i18n.types';
-import { FOOD, KIDS, PEOPLE, SINGING, TEACHING } from '../../shared/church-assets';
+import { FOOD, KIDS, PEOPLE, SINGING } from '../../shared/church-assets';
 
 export interface Ministry {
   readonly id: string;
@@ -45,17 +45,6 @@ export const MINISTRIES: readonly Ministry[] = [
     image: SINGING[0],
   },
   {
-    id: 'english',
-    name: { en: 'English Course (ESL)', vi: 'Lớp Anh Văn (ESL)' },
-    tagline: { en: 'Free community class', vi: 'Lớp cộng đồng miễn phí' },
-    description: {
-      en: 'A free English class serving our neighbors — building confidence, friendship, and a warm welcome into church life.',
-      vi: 'Lớp Anh văn miễn phí phục vụ người lân cận — xây dựng sự tự tin, tình bạn và sự chào đón nồng ấm vào đời sống hội thánh.',
-    },
-    meta: { en: 'Saturdays · 9:00 AM', vi: 'Thứ Bảy · 9:00 AM' },
-    image: TEACHING[1],
-  },
-  {
     id: 'fellowship',
     name: { en: 'Fellowship & Meals', vi: 'Thông Công & Ẩm Thực' },
     tagline: { en: 'All generations', vi: 'Mọi thế hệ' },
@@ -65,16 +54,5 @@ export const MINISTRIES: readonly Ministry[] = [
     },
     meta: { en: 'First Sunday · Lunch', vi: 'Chúa Nhật đầu tháng · Bữa trưa' },
     image: FOOD[0],
-  },
-  {
-    id: 'prayer',
-    name: { en: 'Prayer & Bible Study', vi: 'Cầu Nguyện & Học Kinh Thánh' },
-    tagline: { en: 'Midweek gathering', vi: 'Nhóm giữa tuần' },
-    description: {
-      en: 'We gather midweek to pray for one another and our city, and to dig deeper into God’s word together.',
-      vi: 'Chúng tôi nhóm lại giữa tuần để cầu nguyện cho nhau và cho thành phố, cùng nhau tìm hiểu sâu hơn Lời Chúa.',
-    },
-    meta: { en: 'Tuesdays · 6:00 PM', vi: 'Thứ Ba · 6:00 PM' },
-    image: TEACHING[0],
   },
 ];

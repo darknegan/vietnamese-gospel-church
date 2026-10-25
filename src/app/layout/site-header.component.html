@@ -39,7 +39,7 @@
         </button>
       </div>
 
-      <a class="give-link" routerLink="/give">{{ giveLabel | localize: lang() }}</a>
+      <a class="give-link" [href]="site.givingUrl" target="_blank" rel="noopener">{{ giveLabel | localize: lang() }}</a>
 
       <a pButton rounded [routerLink]="'/visit'" class="visit-btn" [label]="visitLabel | localize: lang()"></a>
 
@@ -72,7 +72,13 @@
           </li>
         }
         <li>
-          <a class="mobile__link mobile__link--give" routerLink="/give" (click)="closeMobile()">
+          <a
+            class="mobile__link mobile__link--give"
+            [href]="site.givingUrl"
+            target="_blank"
+            rel="noopener"
+            (click)="closeMobile()"
+          >
             {{ giveLabel | localize: lang() }}
           </a>
         </li>
