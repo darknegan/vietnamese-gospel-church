@@ -15,8 +15,7 @@ export const SITE = {
     line2: 'Rogers, AR 72756',
   },
   mapUrl: 'https://www.google.com/maps/search/?api=1&query=626+W+Olive+St,+Rogers,+AR+72756',
-  /** External giving provider — replace with the church's real giving link. */
-  givingUrl: 'https://www.example.com/give',
+  givingUrl: 'https://give.tithe.ly/?formId=5eeccc56-ceac-4c2b-82e5-afb9ce2eefa7',
   social: {
     facebook: 'https://facebook.com',
     youtube: 'https://youtube.com',
@@ -37,12 +36,6 @@ export const SERVICE_TIMES: readonly ServiceTime[] = [
     day: { en: 'Every Sunday', vi: 'Mỗi Chúa Nhật' },
     time: '3:00 PM',
     location: { en: 'Main Sanctuary', vi: 'Nhà thờ chính' },
-  },
-  {
-    name: { en: 'Prayer & Bible Study', vi: 'Cầu Nguyện & Học Kinh Thánh' },
-    day: { en: 'Tuesdays', vi: 'Thứ Ba' },
-    time: '6:00 PM',
-    location: { en: 'Online', vi: 'Trực tuyến' },
   },
   {
     name: { en: 'Youth & Kids', vi: 'Thiếu Nhi & Thanh Niên' },

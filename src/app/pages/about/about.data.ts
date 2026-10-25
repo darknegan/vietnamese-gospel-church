@@ -1,5 +1,5 @@
 import { Localized } from '../../core/i18n.types';
-import { COMMUNION, HEADSHOT, PEOPLE } from '../../shared/church-assets';
+import { COMMUNION, PEOPLE } from '../../shared/church-assets';
 
 export interface Leader {
   readonly name: string;
@@ -15,21 +15,12 @@ export const LEADERS: readonly Leader[] = [
     name: 'Pastor Duc',
     role: { en: 'Lead Pastor', vi: 'Mục Sư Quản Nhiệm' },
     bio: {
-      en: 'Alex has shepherded our church family for over a decade, preaching the gospel in both Vietnamese and English.',
-      vi: 'Mục sư Alex đã chăn dắt gia đình hội thánh hơn mười năm, rao giảng Phúc Âm bằng cả tiếng Việt và tiếng Anh.',
+      en: 'Pastor Duc has shepherded our church family for over a decade, preaching the gospel in both Vietnamese and English.',
+      vi: 'Mục sư Đức đã chăn dắt gia đình hội thánh hơn mười năm, rao giảng Phúc Âm bằng cả tiếng Việt và tiếng Anh.',
     },
     image: COMMUNION,
     objectPosition: 'center center',
     imageScale: 1.45,
-  },
-  {
-    name: 'Alex Huff',
-    role: { en: 'Director of Family Ministries', vi: 'Trưởng Ban Gia Đình' },
-    bio: {
-      en: 'Mary leads our children and youth ministries, helping the next generation know and follow Jesus.',
-      vi: 'Cô Mary phụ trách ban thiếu nhi và thanh niên, giúp thế hệ trẻ nhận biết và theo Chúa Giê-xu.',
-    },
-    image: HEADSHOT,
   },
   {
     name: 'Denny Nguyễn',

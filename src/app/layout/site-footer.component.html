@@ -18,7 +18,13 @@
           <h2 class="ftr__coltitle">{{ col.title | localize: lang() }}</h2>
           <ul>
             @for (link of col.links; track link.label.en) {
-              <li><a [routerLink]="link.path">{{ link.label | localize: lang() }}</a></li>
+              <li>
+                @if (link.external) {
+                  <a [href]="link.path" target="_blank" rel="noopener">{{ link.label | localize: lang() }}</a>
+                } @else {
+                  <a [routerLink]="link.path">{{ link.label | localize: lang() }}</a>
+                }
+              </li>
             }
           </ul>
         </nav>

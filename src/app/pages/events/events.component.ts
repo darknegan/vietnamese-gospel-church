@@ -24,6 +24,7 @@ export class EventsComponent {
   readonly lang = this.languageService.lang;
 
   readonly featured = FEATURED_EVENT;
+  readonly hasFeatured = FEATURED_EVENT !== null;
   readonly filters = CATEGORY_FILTERS;
   readonly activeFilter = signal<'all' | EventCategory>('all');
 
@@ -39,8 +40,8 @@ export class EventsComponent {
     eyebrow: { en: 'Events', vi: 'Sự kiện' } as Localized,
     title: { en: 'Gather with us', vi: 'Cùng nhóm với chúng tôi' } as Localized,
     lead: {
-      en: 'From Sunday worship to food nights and prayer gatherings, there is always a way to belong. Everyone is welcome.',
-      vi: 'Từ thờ phượng Chúa Nhật đến đêm ẩm thực và buổi cầu nguyện, luôn có cách để bạn thuộc về. Mọi người đều được chào đón.',
+      en: 'From Sunday worship to fellowship with our church family, there is always a way to belong. Everyone is welcome.',
+      vi: 'Từ thờ phượng Chúa Nhật đến thông công với gia đình hội thánh, luôn có cách để bạn thuộc về. Mọi người đều được chào đón.',
     } as Localized,
     featuredLabel: { en: 'Featured event', vi: 'Sự kiện nổi bật' } as Localized,
     rsvp: { en: 'RSVP', vi: 'Đăng ký' } as Localized,
