@@ -70,6 +70,8 @@ export const TET = [
 
 export const COMMUNION = asset('communion/1000014633.jpg');
 export const PASTOR = asset('pastors/1000014986.jpg');
+export const PASTOR_DUC = asset('pastors/pastor-duc-piano.jpg');
+export const DENNEY_NGUYEN = asset('pastors/denney-nguyen-blue-blazer.jpg');
 export const HEADSHOT = asset('headshots/DSC_1270ret.jpg');
 
 /** Curated, varied set for the home + gallery photo stories. */

@@ -1,5 +1,5 @@
 import { Localized } from '../../core/i18n.types';
-import { COMMUNION, PEOPLE } from '../../shared/church-assets';
+import { DENNEY_NGUYEN, PASTOR_DUC } from '../../shared/church-assets';
 
 export interface Leader {
   readonly name: string;
@@ -18,9 +18,7 @@ export const LEADERS: readonly Leader[] = [
       en: 'Pastor Duc has shepherded our church family for over a decade, preaching the gospel in both Vietnamese and English.',
       vi: 'Mục sư Đức đã chăn dắt gia đình hội thánh hơn mười năm, rao giảng Phúc Âm bằng cả tiếng Việt và tiếng Anh.',
     },
-    image: COMMUNION,
-    objectPosition: 'center center',
-    imageScale: 1.45,
+    image: PASTOR_DUC,
   },
   {
     name: 'Denny Nguyễn',
@@ -29,7 +27,7 @@ export const LEADERS: readonly Leader[] = [
       en: 'David guides our worship team, blending Vietnamese hymns and contemporary songs each Sunday.',
       vi: 'Anh David hướng dẫn ban thờ phượng, hòa quyện thánh ca tiếng Việt và bài hát đương đại mỗi Chúa Nhật.',
     },
-    image: PEOPLE[2],
+    image: DENNEY_NGUYEN,
   },
 ];
 
