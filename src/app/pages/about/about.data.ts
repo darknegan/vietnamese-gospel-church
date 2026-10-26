@@ -28,6 +28,7 @@ export const LEADERS: readonly Leader[] = [
       vi: 'Anh David hướng dẫn ban thờ phượng, hòa quyện thánh ca tiếng Việt và bài hát đương đại mỗi Chúa Nhật.',
     },
     image: DENNEY_NGUYEN,
+    objectPosition: 'center top',
   },
 ];
 
